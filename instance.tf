@@ -27,10 +27,10 @@ resource "aws_instance" "Test-VM" {
 
   provisioner "remote-exec" {
     inline = [
-        "sudo amazon-linux-extras install docker -y", 
+        "sudo amazon-linux-extras install docker -y",
+        "sudo yum install python -y", 
 	"sudo systemctl start docker",
-	"sudo systemctl enable docker",
- 	"sudo sh +x /tmp/httpd.sh"]
+        "sudo systemctl enable docker"]
     connection {
         type     = "ssh"
         host     = "${self.public_ip}"
@@ -38,6 +38,10 @@ resource "aws_instance" "Test-VM" {
         private_key = "${file("/vagrant/mayank-user")}"
 	timeout	 = "2m"
     }
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -u '${var.user}' -i '${self.public_ip},' --private-key '${file("/vagrant/mayank-user")}' provision.yml"
   }
 }
 
