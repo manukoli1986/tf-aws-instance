@@ -115,3 +115,14 @@ ec2_global_ips = [
 ]
 
 ### terrafrom destroy -auto-approve
+
+Output: 
+Destroy complete! Resources: 3 destroyed.
+
+#Provision Apache or LAMP stack with Ansible
+
+Here I am using remote-exec and local-exec
+
+Remote-exec -> Use for provisioning application on resource node once resource node is ready to server. (Bootsrap)
+Local-exec -> Use for provisioning applications while resource is setting up. 
+
