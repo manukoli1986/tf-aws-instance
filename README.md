@@ -119,7 +119,7 @@ ec2_global_ips = [
 Output: 
 Destroy complete! Resources: 3 destroyed.
 
-#Provision Apache or LAMP stack with Ansible
+# Provision Apache or LAMP stack with Ansible
 
 Here I am using remote-exec and local-exec
 
