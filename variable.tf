@@ -39,6 +39,12 @@ variable "connection_timeout" {
   default = "120s"
 }
 
+variable "zones" {
+  description = "A list of EC2 instance types to run."
+  type = "list"
+  default = ["us-east-1a", "us-east-1b", "us-east-1c"]
+}
+
 
 #terraform {
 #  backend "s3" {
