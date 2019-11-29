@@ -147,12 +147,12 @@ ec2_global_ips = [
 Output: 
 Destroy complete! Resources: 3 destroyed.
 
-# remote-exec and local-exec
+### remote-exec and local-exec
 Remote-exec -> Use for provisioning application on resource node once resource node is ready to server. (Bootsrap)
 Local-exec -> Use for provisioning applications while resource is setting up. 
 
-# Creating Multiple file to understand the code and stucture rather than using a single file.
-# multi-instance.tf
+### Creating Multiple file to understand the code and stucture rather than using a single file.
+### multi-instance.tf
 This is the main file where I have mentioned the logic with using inbuilt functions of terrafrom.
 ```
 resource "aws_key_pair" "deployer" {
@@ -232,4 +232,4 @@ output "ec2_global_ips" {
 }
 ```
 
-# Feel free to fork and update in case you want to add more. I will add ELB soon with this. 
+### Feel free to fork and update in case you want to add more. I will add ELB soon with this. 
