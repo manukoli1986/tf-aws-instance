@@ -41,7 +41,7 @@ resource "aws_instance" "Test-VM" {
   }
 
   provisioner "local-exec" {
-    command = "sleep 10s && ansible-playbook -vvv -u ${var.user} -i ${self.public_ip}, --private-key '${var.priv_key_path}' provision.yml"
+    command = "sleep 10s && ansible-playbook -v -u ${var.user} -i ${self.public_ip}, --private-key '${var.priv_key_path}' provision.yml"
   }
 }
 
