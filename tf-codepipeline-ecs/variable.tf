@@ -7,13 +7,6 @@ variable "AWS_SECRET_ACCESS_KEY" {
 variable "aws_region" {
     default = "$(aws configure get region)"
     }
-# variable "region_number" {
-#    default = {
-#    us-east-1a = 1
-#    us-east-1b = 2
-#    us-east-1c = 3
-#        }
-#  }
 
 variable "key_name" {
     default = "mayank"
@@ -32,19 +25,17 @@ variable "owner" {
   default = "Mayank Koli"
     } 
 variable "environment" {
-  description = "Test Infra"
-  default = "Test-VM"
+  description = "Prod"
+  default = "prodApp"
     }
 variable "connection_timeout" {
   default = "120s"
 }
-
-
-#terraform {
-#  backend "s3" {
-#    region     = "us-east-1"
-#    bucket     = "tf-remote-state-test123-eu-east-1"
-#    key        = "terraform.tfstate"
-#    encrypt    = true
-#	 }
-#}
+variable "github_token" {
+  description = "The GitHub Token to be used for the CodePipeline"
+  type        = "string"
+}
+variable "account_id" {
+  description = "id of the active account"
+  type        = "string"
+}

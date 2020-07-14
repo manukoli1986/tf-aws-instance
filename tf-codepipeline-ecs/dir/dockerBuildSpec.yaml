@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo install step...
+  pre_build:
+    commands:
+      - echo logging in to AWS ECR...
+      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - REPO_URI=342679289922.dkr.ecr.us-east-1.amazonaws.com/flask-app
+  build:
+    commands:
+      - echo build Docker image on `date`
+      - docker build -t flask-app .
+      - docker tag flask-app:latest $REPO_URI:latest
+  post_build:
+    commands:
+      - echo push latest Docker images to ECR...
+      - docker push $REPO_URI:latest

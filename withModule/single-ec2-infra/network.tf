@@ -1,6 +1,11 @@
-resource "aws_security_group" "All_traffic" {
+
+resource "aws_security_group" "sg" {
   name        = "All_traffic"
-  description = "Allow all inbound traffic"
+  description = "Allow all inbound traffic for 22,80 and 8080."
+  vpc_id      = "${aws_vpc.new_vpc.id}"
+  tags = {
+    name: "common"
+  }
   ingress {
     from_port   = 22
     to_port     = 22
@@ -28,3 +33,20 @@ resource "aws_security_group" "All_traffic" {
   }
 }
 
+# resource "aws_network_interface" "foo" {
+#   subnet_id   = "${aws_subnet.my_subnet.id}"
+#   private_ips = ["172.16.10.100"]
+
+#   tags = {
+#     Name = "primary_network_interface"
+#   }
+# }
+
+# resource "aws_network_interface" "foo" {
+#   subnet_id   = "${aws_subnet.my_subnet.id}"
+#   private_ips = ["172.16.10.100"]
+
+#   tags = {
+#     Name = "primary_network_interface"
+#   }
+# }
