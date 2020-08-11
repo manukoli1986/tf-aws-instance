@@ -1,0 +1,1 @@
+ec2_env = "t2.micro"

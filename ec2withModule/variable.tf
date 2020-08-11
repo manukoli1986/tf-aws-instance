@@ -16,7 +16,7 @@ variable "aws_region" {
 #  }
 
 variable "key_name" {
-    default = "mayank"
+    default = "amar"
     }
 variable "user" { 
     default = "ec2-user"
@@ -29,7 +29,7 @@ variable "priv_key_path" {
     }
 variable "owner" {
   description = "Infra Owner"
-  default = "Mayank Koli"
+  default     = "Mayank Koli"
     } 
 variable "environment" {
   description = "Test Infra"
