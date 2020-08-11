@@ -14,9 +14,9 @@ provider "aws" {
 #   }
 # }
 
-variable "ec2_env" {}
+# variable "ec2_env" {}
 
 module "ec2instance" {
   source = "./modules/ec2"
-  instance_type = var.ec2_env
+  # instance_type = var.ec2_env
 }
