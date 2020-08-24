@@ -16,7 +16,16 @@ provider "aws" {
 
 # variable "ec2_env" {}
 
+module "sg_import" {
+  source = "./modules/sg"
+}
+
 module "ec2instance" {
   source = "./modules/ec2"
   # instance_type = var.ec2_env
 }
+
+# output "ec2" {
+#   value = "${modules.ec2.ec2_public_ip}"
+#   #module.<MODULE NAME>.<OUTPUT NAME>
+# }
