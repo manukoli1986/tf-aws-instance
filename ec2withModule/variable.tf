@@ -7,13 +7,10 @@ variable "AWS_SECRET_ACCESS_KEY" {
 variable "aws_region" {
   default = "$(aws configure get region)"
 }
-# variable "region_number" {
-#    default = {
-#    us-east-1a = 1
-#    us-east-1b = 2
-#    us-east-1c = 3
-#        }
-#  }
+
+variable "CIDR" {
+  default = "112.196.159.23"  # add your IP address here
+}
 
 variable "key_name" {
   default = "amar"

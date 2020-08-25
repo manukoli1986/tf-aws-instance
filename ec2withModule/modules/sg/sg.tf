@@ -4,6 +4,7 @@ variable "ingress_ports" {
   default = [22,8080,80]
 }
 
+
 resource "aws_security_group" "sg" {
   name        = "All_traffic"
   description = "Allow all inbound traffic for 22,80 and 8080."
@@ -18,27 +19,9 @@ resource "aws_security_group" "sg" {
       from_port   = ingress.value
       to_port     = ingress.value
       protocol    = "tcp"
-      cidr_blocks = ["${var.CIDR}/32"]
+      cidr_blocks = ["112.196.159.23/32"]
     }
   }
-  # ingress {
-  #   from_port   = 22
-  #   to_port     = 22
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["${var.CIDR}/32"] 
-  # }
-  # ingress {
-  #   from_port   = 8080
-  #   to_port     = 8080
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["${var.CIDR}/32"] 
-  # }
-  # ingress {
-  #   from_port   = 80
-  #   to_port     = 80
-  #   protocol    = "tcp"
-  #   cidr_blocks = ["${var.CIDR}/32"] 
-  # }
   
 
   egress {

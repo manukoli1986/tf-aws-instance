@@ -22,10 +22,6 @@ module "sg_import" {
 
 module "ec2instance" {
   source = "./modules/ec2"
-  # instance_type = var.ec2_env
+  security_group_ids = [module.sg_import.sg_output]
 }
 
-# output "ec2" {
-#   value = "${modules.ec2.ec2_public_ip}"
-#   #module.<MODULE NAME>.<OUTPUT NAME>
-# }
